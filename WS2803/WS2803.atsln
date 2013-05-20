@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "WS2803", "WS2803\WS2803.cproj", "{56633F83-D9BF-4B4D-BBB7-B3F040C61E9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56633F83-D9BF-4B4D-BBB7-B3F040C61E9E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{56633F83-D9BF-4B4D-BBB7-B3F040C61E9E}.Debug|AVR.Build.0 = Debug|AVR
+		{56633F83-D9BF-4B4D-BBB7-B3F040C61E9E}.Release|AVR.ActiveCfg = Release|AVR
+		{56633F83-D9BF-4B4D-BBB7-B3F040C61E9E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
