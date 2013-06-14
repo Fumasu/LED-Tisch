@@ -3,11 +3,11 @@
  *
  * Created: 05.05.2013 16:59:39
  *  Author: Christoph
- */ 
+ */
 
 #include "screen.h"
 
-uint8_t screen_data[SCREEN_WIDTH * SCREEN_HEIGHT * 3];
+_pixel screen_data[SCREEN_WIDTH * SCREEN_HEIGHT ];
 uint8_t gamma_table[] ={
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -38,21 +38,21 @@ uint8_t gamma_table[] ={
 };
 
 void screen_setPixel(uint8_t x, uint8_t y, uint8_t r, uint8_t g, uint8_t b) {
-	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 0] =gamma_table[r];
-	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 1] =gamma_table[g];
-	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 2] =gamma_table[b];
+	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].r =gamma_table[r];
+	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].g =gamma_table[g];
+	screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].b =gamma_table[b];
 }
 
 void screen_show() {
 	for(uint8_t x =0;x <SCREEN_WIDTH;x++) {
 		for(uint8_t y =0;y <SCREEN_HEIGHT;y++) {
-			ws2803_setPixel(screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 0], screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 1], screen_data[(x * 3) + (y * SCREEN_WIDTH * 3) + 2]);
+			ws2803_setPixel(screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].r, screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].g, screen_data[(x * 3) + (y * SCREEN_WIDTH * 3)].b);
 		}
 	}
-	
+
 	for(int16_t i =0;i <(WS2803_NUM_ICS * 6) - (SCREEN_WIDTH * SCREEN_HEIGHT);i++) {
 		ws2803_setPixel(0, 0, 0);
 	}
-	
+
 	ws2803_show();
 }

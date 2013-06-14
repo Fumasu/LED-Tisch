@@ -3,7 +3,7 @@
  *
  * Created: 05.05.2013 16:57:37
  *  Author: Christoph
- */ 
+ */
 
 
 #ifndef SCREEN_H_
@@ -11,6 +11,12 @@
 
 #include "config.h"
 #include "ws2803.h"
+
+typedef struct {
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+} _pixel;
 
 void screen_show();
 
